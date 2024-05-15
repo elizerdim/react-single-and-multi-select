@@ -1,21 +1,34 @@
 import { useEffect, useState } from "react";
-import { SelectOption, SelectProps } from "./types"
+import { SelectOption, SelectProps } from "./types";
 import styles from "./select.module.css";
 
-export default function Select({ value, onChange, options }: SelectProps) {
+export default function Select({
+  multiple,
+  value,
+  onChange,
+  options,
+}: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(0);
 
   function clearOptions() {
-    onChange(undefined);
+    multiple ? onChange([]) : onChange(undefined);
   }
 
   function selectOption(option: SelectOption) {
-    if (option !== value) onChange(option);
+    if (multiple) {
+      if (value.includes(option)) {
+        onChange(value.filter((o) => o !== option));
+      } else {
+        onChange([...value, option]);
+      }
+    } else {
+      if (option !== value) onChange(option);
+    }
   }
 
   function isOptionSelected(option: SelectOption) {
-    return option === value;
+    return multiple ? value.includes(option) : option === value;
   }
 
   useEffect(() => {
@@ -29,7 +42,23 @@ export default function Select({ value, onChange, options }: SelectProps) {
       tabIndex={0}
       className={styles.container}
     >
-      <span className={styles.value}>{value?.label}</span>
+      <span className={styles.value}>
+        {multiple
+          ? value.map((v) => (
+              <button
+                key={v.value}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  selectOption(v);
+                }}
+                className={styles["option-badge"]}
+              >
+                {v.label}
+                <span className={styles["remove-btn"]}>&times;</span>
+              </button>
+            ))
+          : value?.label}
+      </span>
       <button
         onClick={(e) => {
           e.stopPropagation();
