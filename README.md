@@ -25,7 +25,7 @@ Users should be able to:
 
 ## What I learned
 
-
+- CSS modules
 
 ## Continued development
 
