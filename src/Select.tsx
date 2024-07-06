@@ -68,6 +68,7 @@ export default function Select({
     return () => {
       currentContainerRef?.removeEventListener("keydown", handler);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, highlightedIndex, options]);
 
   return (
