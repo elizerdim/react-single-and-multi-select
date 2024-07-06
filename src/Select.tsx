@@ -42,7 +42,7 @@ export default function Select({
       switch (e.code) {
         case "Enter":
         case "Space":
-          setIsOpen(!isOpen);
+          setIsOpen(prev => !prev);
           if (isOpen) selectOption(options[highlightedIndex]);
           break;
         case "ArrowUp":
