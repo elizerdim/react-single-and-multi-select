@@ -6,17 +6,20 @@ This is a [tutorial](https://www.youtube.com/watch?v=bAJlYgeovlg&list=PL4EX4Aw5_
 
 Users should be able to:
 
-- 
-- 
+- Select a value from the first dropdown menu
+- Remove the selected value from the first dropdown menu
+- Select multiple values from the second dropdown menu
+- Remove the selected values one by one or all at once from the second dropdown menu
+- Perform the same operations using their keyboard
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.png)
 
 ## Links
 
-- [View Code](https://www.example.com)
-- [Live Preview](https://www.example.com)
+- [View Code](https://github.com/elizerdim/react-single-and-multi-select)
+- [Live Preview](https://react-single-and-multi-select.vercel.app/)
 
 ## Built with
 
@@ -25,13 +28,4 @@ Users should be able to:
 
 ## What I learned
 
-- CSS modules
-
-## Continued development
-
-
-
-## Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+This was a great project for me to practice React in general, especially useState and useEffect, and learn how to implement keyboard functionality to custom elements. I will definetely refer back to this project when implementing similar elements in other projects.
